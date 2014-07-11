@@ -1,47 +1,45 @@
-map_hash
-========
-This function renames keys in a hash and returns a hash of with only the new keys.  The function can
-   also create an additional key that uses the title if the nested hash as the value.
+<p>This function renames keys in a hash and returns a hash of with only the new keys.  The function can
+   also create an additional key that uses the title if the nested hash as the value.</p>
 
-  The first argument is the nested hash to manipulate
+<p>The first argument is the nested hash to manipulate
   The second argument is a hash of how to remap the keys and the keys that will be included in the resulting hash
   The third argument is a string of a key used to determine which hashes to include in the result. The value of
   the key must be a boolean value (optional)
-  The fourth argument is a new key name which will be created in every hash whose value will be the hash title (optional)
+  The fourth argument is a new key name which will be created in every hash whose value will be the hash title (optional)</p>
 
-  $test_hash = {
-    'finch' => {  'user_id'   => '5000',
-                  'group_id'  => '5000',
-                  'path'      => '/home/finch',
-                  'include'   => true,
-                  'shell'     => '/bin/bash',
+<p>$test<em>hash = {
+    &#39;finch&#39; =&gt; {  &#39;user</em>id&#39;   =&gt; &#39;5000&#39;,
+                  &#39;group<em>id&#39;  =&gt; &#39;5000&#39;,
+                  &#39;path&#39;      =&gt; &#39;/home/finch&#39;,
+                  &#39;include&#39;   =&gt; true,
+                  &#39;shell&#39;     =&gt; &#39;/bin/bash&#39;,
                 },
-    'gary'  => {  'user_id'   => '5001',
-                  'group_id'  => '5001',
-                  'path'      => '/home/gary',
-                  'include'   => true,
-                  'shell'     => '/bin/bash',
+    &#39;gary&#39;  =&gt; {  &#39;user</em>id&#39;   =&gt; &#39;5001&#39;,
+                  &#39;group<em>id&#39;  =&gt; &#39;5001&#39;,
+                  &#39;path&#39;      =&gt; &#39;/home/gary&#39;,
+                  &#39;include&#39;   =&gt; true,
+                  &#39;shell&#39;     =&gt; &#39;/bin/bash&#39;,
                 },
-    'amanda' => { 'user_id'   => '5002',
-                  'group_id'  => '5002',
-                  'path'      => '/home/amanda',
-                  'include'   => false,
-                  'shell'     => '/bin/bash',
+    &#39;amanda&#39; =&gt; { &#39;user</em>id&#39;   =&gt; &#39;5002&#39;,
+                  &#39;group_id&#39;  =&gt; &#39;5002&#39;,
+                  &#39;path&#39;      =&gt; &#39;/home/amanda&#39;,
+                  &#39;include&#39;   =&gt; false,
+                  &#39;shell&#39;     =&gt; &#39;/bin/bash&#39;,
                 },
-  }
+  }</p>
 
-  $rename_hash = {'user_id' => 'uid','group_id' => 'gid', 'path' => 'homedir','shell' => 'shell'}
+<p>$rename<em>hash = {&#39;user</em>id&#39; =&gt; &#39;uid&#39;,&#39;group_id&#39; =&gt; &#39;gid&#39;, &#39;path&#39; =&gt; &#39;homedir&#39;,&#39;shell&#39; =&gt; &#39;shell&#39;}</p>
 
-  $fixed_hash = map_hash($test_hash, $rename_hash, 'include','name')
+<p>$fixed<em>hash = map</em>hash($test<em>hash, $rename</em>hash, &#39;include&#39;,&#39;name&#39;)</p>
 
-  result:
+<p>result:
   {
-    'finch' => {  'uid'   => '5000',
-                  'gid'   => '5000',
-                  'homedir' => '/home/finch',
+    &#39;finch&#39; =&gt; {  &#39;uid&#39;   =&gt; &#39;5000&#39;,
+                  &#39;gid&#39;   =&gt; &#39;5000&#39;,
+                  &#39;homedir&#39; =&gt; &#39;/home/finch&#39;,
                },
-    'gary'  => {  'uid'   => '5001',
-                  'gid'   => '5001',
-                  'homedir' => '/home/gary',
+    &#39;gary&#39;  =&gt; {  &#39;uid&#39;   =&gt; &#39;5001&#39;,
+                  &#39;gid&#39;   =&gt; &#39;5001&#39;,
+                  &#39;homedir&#39; =&gt; &#39;/home/gary&#39;,
                },
-  }
+  }</p>
